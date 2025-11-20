@@ -84,7 +84,7 @@ declare -r DNS_SERVER
 declare -r DNS_PORT
 declare -r CHALLENGE_DOMAIN
 
-declare -r PARENT=$(ps -o ppid= -p $PPID)
+declare -r PARENT=$(ps -o ppid= -p $PPID | xargs)
 declare -r NSUPDATE_FILE="/tmp/certbot_dns_rfc2136.${PARENT/ /}.${DNS_SERVER}.${ACTION}.nsupdate"
 
 ${DEBUG} && date >> "${DEBUG_FILE}"
